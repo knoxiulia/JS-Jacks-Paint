@@ -1,24 +1,31 @@
 function configureListeners() {
-    let images = // select img elements  
+    let images = document.getElementsByTagName('img')
 
 
-     for (var i = 0; i < images.length; i++) {        
+    for (var i = 0; i < images.length; i++) {    
+
+    document.getElementById(images[i]).addEventListener('mouseover',addOpacity)  
+    document.getElementById(images[i]).addEventListener('mouseout',removeOpacity)       
         // iterate over images and add mouseover event listeners      
     } 
 }
 
 function addOpacity(event) {
+
+    if
     // add appropriate CSS class
     getProductInfo(event.target.id);     
 }
 
 function removeOpacity(event) {
+
+
      //remove appropriate CSS class
 
-    let element = document.getElementById('color-price');
+    let element = document.getElementById('#color-price');
         element.textContent = '';
         
-    let color = document.getElementById('color-name');
+    let color = document.getElementById('#color-name');
         color.textContent = ''; 
 
     event.preventDefault();    
@@ -74,7 +81,7 @@ function getProductInfo(paintColor) {
             colorName = 'Solid yellow'
             updatePrice(colorName, price)
             break;   
-          default:              
+        default:              
     }
 
     function updatePrice(colorName, price)
