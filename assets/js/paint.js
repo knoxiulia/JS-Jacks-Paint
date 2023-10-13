@@ -2,23 +2,28 @@ function configureListeners() {
     let images = document.getElementsByTagName('img')
 
 
-    for (var i = 0; i < images.length; i++) {    
+    for (let i = 0; i < images.length; i++) {    
 
-    document.getElementById(images[i]).addEventListener('mouseover',addOpacity)  
-    document.getElementById(images[i]).addEventListener('mouseout',removeOpacity)       
+    images[i].addEventListener('mouseover',addOpacity)
+    images[i].addEventListener('mouseout',removeOpacity)     
         // iterate over images and add mouseover event listeners      
     } 
 }
 
 function addOpacity(event) {
 
-    if
+    if (!this.classList.contains('dim')){
+        this.classList.add('dim')
+    }  
     // add appropriate CSS class
     getProductInfo(event.target.id);     
 }
 
 function removeOpacity(event) {
 
+    if (this.classList.contains('dim')){
+        this.classList.remove('dim');
+    }
 
      //remove appropriate CSS class
 
@@ -28,7 +33,9 @@ function removeOpacity(event) {
     let color = document.getElementById('#color-name');
         color.textContent = ''; 
 
+
     event.preventDefault();    
+
 }
 
 function getProductInfo(paintColor) {
